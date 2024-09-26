@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tareas - Semana 2</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #81c3f3 0%, #3a8ef3 100%); /* Degradado entre celeste y azul */
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+        /* Contenedor principal */
+        .container {
+            width: 90%;
+            max-width: 1500px;
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            margin-top: 30px;
+        }
+        /* Título principal */
+        .container h1 {
+            font-size: 32px;
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        /* Estilo de las tarjetas (tareas) */
+        .task {
+            background-color: #fff;
+            width: 100%;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        .task:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            background-color: #fdfdfd;
+        }
+        .task h2 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .task p {
+            font-size: 16px;
+            color: #666;
+        }
+        .task pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+        /* Icono decorativo en cada tarea */
+        .task-icon {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-size: 50px;
+            color: rgba(255, 183, 77, 0.2);
+        }
+        /* Botón para regresar al inicio */
+        .back-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px auto;
+            background-color: #4CAF50; /* Color verde */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            font-size: 18px;
+            width: 150px; /* Ancho fijo para el botón */
+        }
+        .back-button:hover {
+            background-color: #45a049; /* Color verde más oscuro */
+        }
+        /* Animación de entrada para las tarjetas */
+        .task {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        .task.animate {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.6s ease;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Contenedor principal -->
+    <div class="container">
+        <h1>Tareas - Semana 2</h1>
+        
+        <!-- Tarea 1 -->
+        <div class="task">
+            <div class="task-icon">📋</div>
+            <h2>Ejercicio 1: Definir el alcance del proyecto</h2>
+            <p>Descripción: Detallar los objetivos principales y secundarios del proyecto.</p>
+            <pre><code>
+// Objetivo Principal
+Crear una aplicación de gestión de hoteles.
+// Objetivo Secundario
+Incluir funcionalidades de reserva en línea.
+            </code></pre>
+        </div>
+
+        <!-- Tarea 2 -->
+        <div class="task">
+            <div class="task-icon">📝</div>
+            <h2>Ejercicio 2: Análisis de requisitos</h2>
+            <p>Descripción: Crear un documento que liste los requisitos funcionales y no funcionales del sistema.</p>
+            <pre><code>
+// Requisitos Funcionales
+El sistema debe permitir reservas.
+// Requisitos No Funcionales
+Debe ser accesible 24/7.
+            </code></pre>
+        </div>
+
+        <!-- Tarea 3 -->
+        <div class="task">
+            <div class="task-icon">📊</div>
+            <h2>Ejercicio 3: Diagrama de flujo</h2>
+            <p>Descripción: Diseñar el diagrama de flujo que represente el proceso de una reserva de hotel.</p>
+            <pre><code>
+// Diagrama de flujo simplificado
+Inicio -> Seleccionar Habitación -> Confirmar -> Fin
+            </code></pre>
+        </div>
+
+        <!-- Agrega más tareas aquí siguiendo el mismo formato -->
+
+        <!-- Botón para regresar al inicio al final de las tareas -->
+        <a href="index.html" class="back-button">Regresar al Inicio</a>
+        
+    </div>
+
+    <!-- JavaScript para animación al cargar las tareas -->
+    <script>
+        window.addEventListener('load', () => {
+            const tasks = document.querySelectorAll('.task');
+            tasks.forEach((task, index) => {
+                setTimeout(() => {
+                    task.classList.add('animate');
+                }, index * 150); // Agrega un pequeño retraso para cada tarea
+            });
+        });
+    </script>
+
+</body>
+</html>

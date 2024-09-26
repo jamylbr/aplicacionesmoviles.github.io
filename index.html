@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio - Tareas del Curso</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('img/fondo.jpg'); /* Cambia 'ruta/a/tu/imagen.jpg' por la ruta de tu imagen */
+            background-size: cover; /* Hace que la imagen cubra todo el fondo */
+            background-position: center; /* Centra la imagen de fondo */
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        /* Estilo del contenedor principal */
+        .container {
+            width: 90%;
+            max-width: 1500px;
+            background-color: rgba(255, 255, 255, 0.6); /* Fondo blanco con transparencia */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            margin-top: 30px;
+        }
+        /* Estilo del menú lateral */
+        .sidebar {
+            position: absolute;
+            left: 20px;
+            top: 20px;
+            background-color: rgba(255, 255, 255, 0.6); /* Fondo blanco con transparencia */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            width: 100px;
+        }
+        .sidebar h3 {
+            margin-top: 0;
+            cursor: pointer; /* Cambia el cursor al pasar por encima */
+        }
+        .sidebar a {
+            display: block;
+            text-decoration: none;
+            padding: 10px;
+            color: #333;
+            transition: background-color 0.5s;
+        }
+        .sidebar a:hover {
+            background-color: #f1f1f1;
+        }
+        /* Estilo para las semanas (ocultas por defecto) */
+        .weeks {
+            display: none; /* Inicialmente ocultas */
+        }
+        /* Estilo para el título principal */
+        h1 {
+            font-size: 28px;
+            color: #333;
+        }
+        /* Estilo del fondo de portada */
+        .banner {
+            width: 100%;
+            height: 500px;
+            background-color: rgba(255, 255, 255, 0.6); /* Fondo blanco con transparencia */
+            border-radius: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 50px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        .banner h2 {
+            font-size: 36px;
+            color: #3a8ef3;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Menú lateral -->
+    <div class="sidebar">
+        <h3 onclick="toggleWeeks()">Semanas</h3>
+        <div class="weeks" id="weeksMenu">
+            <a href="semana01.html">Semana 1</a>
+            <a href="semana02.html">Semana 2</a>
+            <a href="semana3.html">Semana 3</a>
+            <a href="semana4.html">Semana 4</a>
+            <a href="semana5.html">Semana 5</a>
+            <a href="semana6.html">Semana 6</a>
+            <a href="semana7.html">Semana 7</a>
+            <a href="semana8.html">Semana 8</a>
+            <a href="semana9.html">Semana 9</a>
+            <a href="semana10.html">Semana 10</a>
+            <a href="semana11.html">Semana 11</a>
+            <a href="semana12.html">Semana 12</a>
+            <a href="semana13.html">Semana 13</a>
+            <a href="semana14.html">Semana 14</a>
+            <a href="semana15.html">Semana 15</a>
+            <a href="semana16.html">Semana 16</a>
+        </div>
+    </div>
+
+    <!-- Contenedor principal -->
+    <div class="container">
+        <h1>PROGRAMACION DE APLICACIONES WEB Y MOBILES</h1>
+        <div class="banner">
+            <h2>Diseño y programacion web</h2>
+            
+        </div>
+        <div>
+            <h2>Luis Gomez Jamyl Brandom</h2>
+        </div>
+    </div>
+
+    <script>
+        function toggleWeeks() {
+            const weeksMenu = document.getElementById('weeksMenu');
+            // Alternar la visibilidad del menú de semanas
+            if (weeksMenu.style.display === 'none' || weeksMenu.style.display === '') {
+                weeksMenu.style.display = 'block';
+            } else {
+                weeksMenu.style.display = 'none';
+            }
+        }
+    </script>
+
+</body>
+</html>
