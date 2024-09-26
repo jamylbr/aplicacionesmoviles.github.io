@@ -3,147 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tareas - Semana 1</title>
+    <title>Semana 1 - Tareas</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #81c3f3 0%, #3a8ef3 100%); /* Degradado entre celeste y azul */
-            min-height: 100vh;
+            background-color: #f4f4f4; /* Fondo claro para la página */
             display: flex;
-            justify-content: center;
-            align-items: flex-start;
+            flex-direction: column;
+            align-items: center;
         }
-        /* Contenedor principal */
         .container {
             width: 90%;
-            max-width: 1500px;
-            padding: 30px;
+            max-width: 800px;
             background-color: rgba(255, 255, 255, 0.9);
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            border-radius: 20px;
-            margin-top: 30px;
-        }
-        /* Título principal */
-        .container h1 {
-            font-size: 32px;
-            color: #333;
+            border-radius: 10px;
+            padding: 20px;
             text-align: center;
-            margin-bottom: 30px;
+            margin-top: 20px;
         }
-        /* Estilo de las tarjetas (tareas) */
+        h2 {
+            color: #3a8ef3;
+        }
         .task {
             background-color: #fff;
-            width: 100%;
-            padding: 20px;
-            margin-bottom: 15px;
+            border: 1px solid #ddd;
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
+            padding: 15px;
+            margin: 10px 0;
+            transition: transform 0.3s;
         }
         .task:hover {
             transform: scale(1.05);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-            background-color: #fdfdfd;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
         }
-        .task h2 {
-            font-size: 22px;
-            margin-bottom: 10px;
-            color: #333;
-        }
-        .task p {
-            font-size: 16px;
-            color: #666;
-        }
-        .task pre {
-            background-color: #f4f4f4;
-            padding: 10px;
-            border-radius: 5px;
-            font-size: 14px;
-            margin-top: 10px;
-        }
-        /* Icono decorativo en cada tarea */
-        .task-icon {
-            position: absolute;
-            top: -20px;
-            right: -20px;
-            font-size: 50px;
-            color: rgba(255, 183, 77, 0.2);
-        }
-        /* Botón para regresar al inicio */
         .back-button {
-            display: inline-block;
-            padding: 10px 20px;
-            margin: 10px auto;
-            background-color: #4CAF50; /* Color verde */
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-align: center;
-            text-decoration: none;
-            transition: background-color 0.3s ease;
-            font-size: 18px;
-            width: 200px; /* Ancho fijo para el botón */
-        }
-        .back-button:hover {
-            background-color: #45a049; /* Color verde más oscuro */
-        }
-        /* Animación de entrada para las tarjetas */
-        .task {
-            opacity: 0;
-            transform: translateY(50px);
-        }
-        .task.animate {
-            opacity: 1;
-            transform: translateY(0);
-            transition: all 0.6s ease;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
 
-    <!-- Contenedor principal -->
     <div class="container">
-        <h1>Tareas - Semana 1</h1>
-        
-        <!-- Tarea 1 -->
+        <h2>Tareas de la Semana 1</h2>
+
+        <!-- Enlace a la tarea PDF -->
         <div class="task">
-            <div class="task-icon">📋</div>
-            <h2>Ejercicio 1: Definir el alcance del proyecto</h2>
-            <p>Descripción: Detallar los objetivos principales y secundarios del proyecto.
-                <link rel="stylesheet" href="https://www.canva.com/design/DAGRQmGe38U/Fh_jFl3w0a5iDM-TU4MmHA/edit?utm_content=DAGRQmGe38U&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton">
-            </p>
-
-            <pre><code>
-            <link rel="stylesheet" href="">
-
-            </code></pre>
+            <h3>Tarea 1: Nombre de la tarea</h3>
+            <p>Descripción de la tarea...</p>
+            <a href="docs/tarea1.pdf" target="_blank">Descargar PDF</a> <!-- Cambia 'docs/tarea1.pdf' por la ruta de tu PDF -->
         </div>
 
-      
-        <!-- Agrega más tareas aquí siguiendo el mismo formato -->
+        <!-- Más tareas -->
+        <div class="task">
+            <h3>Tarea 2: Nombre de la tarea</h3>
+            <p>Descripción de la tarea...</p>
+            <a href="#">Más información</a>
+        </div>
 
-        <!-- Botón para regresar al inicio al final de las tareas -->
-        <a href="index.html" class="back-button">Regresar al Inicio</a>
-        
+        <div class="back-button">
+            <a href="index.html">Regresar al inicio</a>
+        </div>
     </div>
-
-    <!-- JavaScript para animación al cargar las tareas -->
-    <script>
-        window.addEventListener('load', () => {
-            const tasks = document.querySelectorAll('.task');
-            tasks.forEach((task, index) => {
-                setTimeout(() => {
-                    task.classList.add('animate');
-                }, index * 150); // Agrega un pequeño retraso para cada tarea
-            });
-        });
-    </script>
 
 </body>
 </html>
