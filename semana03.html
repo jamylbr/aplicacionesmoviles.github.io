@@ -3,19 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tareas - Semana 2</title>
+    <title>Tareas - Semana 3</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #81c3f3 0%, #3a8ef3 100%); /* Degradado entre celeste y azul */
+            background: linear-gradient(135deg, #81c3f3 0%, #3a8ef3 100%);
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: flex-start;
         }
-        /* Contenedor principal */
         .container {
             width: 90%;
             max-width: 1500px;
@@ -25,14 +24,12 @@
             border-radius: 20px;
             margin-top: 30px;
         }
-        /* Título principal */
         .container h1 {
             font-size: 32px;
             color: #333;
             text-align: center;
             margin-bottom: 30px;
         }
-        /* Estilo de las tarjetas (tareas) */
         .task {
             background-color: #fff;
             width: 100%;
@@ -66,7 +63,6 @@
             font-size: 14px;
             margin-top: 10px;
         }
-        /* Icono decorativo en cada tarea */
         .task-icon {
             position: absolute;
             top: -20px;
@@ -74,12 +70,11 @@
             font-size: 50px;
             color: rgba(255, 183, 77, 0.2);
         }
-        /* Botón para regresar al inicio */
         .back-button {
             display: inline-block;
             padding: 10px 20px;
             margin: 10px auto;
-            background-color: #4CAF50; /* Color verde */
+            background-color: #4CAF50;
             color: white;
             border: none;
             border-radius: 5px;
@@ -88,12 +83,11 @@
             text-decoration: none;
             transition: background-color 0.3s ease;
             font-size: 18px;
-            width: 100px; /* Ancho fijo para el botón */
+            width: 150px;
         }
         .back-button:hover {
-            background-color: #45a049; /* Color verde más oscuro */
+            background-color: #45a049;
         }
-        /* Animación de entrada para las tarjetas */
         .task {
             opacity: 0;
             transform: translateY(50px);
@@ -103,66 +97,108 @@
             transform: translateY(0);
             transition: all 0.6s ease;
         }
+        .download-link {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .download-link:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
 
-    <!-- Contenedor principal -->
     <div class="container">
-        <h1>Tareas - Semana 2</h1>
+        <h1>Tareas - Semana 3</h1>
         
         <!-- Tarea 1 -->
         <div class="task">
             <div class="task-icon">📋</div>
-            <h2>Ejercicio 1: Definir el alcance del proyecto</h2>
-            <p>Descripción: Detallar los objetivos principales y secundarios del proyecto.</p>
+            <h2>Proyecto 01: Área y Volumen de un Cilindro</h2>
+            <p>Descripción: Diseñe un programa en Dart para calcular el área total y volumen de un cilindro dado su radio y altura.</p>
             <pre><code>
-// Objetivo Principal
-Crear una aplicación de gestión de hoteles.
-// Objetivo Secundario
-Incluir funcionalidades de reserva en línea.
+import 'dart:math';
+
+void main() {
+  double r = 5.0;
+  double h = 10.0;
+  double area = 2 * pi * r * (r + h);
+  double volumen = pi * pow(r, 2) * h;
+  print('El área total del cilindro es: $area');
+  print('El volumen del cilindro es: $volumen');
+}
             </code></pre>
+            <a href="codigo1.dart" class="download-link" download>Descargar Código</a>
         </div>
 
         <!-- Tarea 2 -->
         <div class="task">
             <div class="task-icon">📝</div>
-            <h2>Ejercicio 2: Análisis de requisitos</h2>
-            <p>Descripción: Crear un documento que liste los requisitos funcionales y no funcionales del sistema.</p>
+            <h2>Proyecto 02: Repartición de Dinero entre Hijos</h2>
+            <p>Descripción: Diseñe un programa en Dart que determine la cantidad de dinero que recibirá cada hijo según las proporciones dadas.</p>
             <pre><code>
-// Requisitos Funcionales
-El sistema debe permitir reservas.
-// Requisitos No Funcionales
-Debe ser accesible 24/7.
+void main() {
+  double totalDinero = 1000.0;
+  double josue = 0.27 * totalDinero;
+  double daniel = 0.25 * totalDinero;
+  double tamar = 0.85 * josue;
+  double caleb = 0.23 * (josue + daniel);
+  double david = totalDinero - (josue + daniel + tamar + caleb);
+  print('Josué recibe: \$${josue.toStringAsFixed(2)}');
+  print('Daniel recibe: \$${daniel.toStringAsFixed(2)}');
+  print('Tamar recibe: \$${tamar.toStringAsFixed(2)}');
+  print('Caleb recibe: \$${caleb.toStringAsFixed(2)}');
+  print('David recibe: \$${david.toStringAsFixed(2)}');
+}
             </code></pre>
+            <a href="codigo2.dart" class="download-link" download>Descargar Código</a>
         </div>
 
         <!-- Tarea 3 -->
         <div class="task">
             <div class="task-icon">📊</div>
-            <h2>Ejercicio 3: Diagrama de flujo</h2>
-            <p>Descripción: Diseñar el diagrama de flujo que represente el proceso de una reserva de hotel.</p>
+            <h2>Proyecto 03: Distribución de Inversión en Rubros</h2>
+            <p>Descripción: Diseñe un programa en Dart que determine cuánto dinero se invertirá en cada rubro de una feria según el porcentaje asignado.</p>
             <pre><code>
-// Diagrama de flujo simplificado
-Inicio -> Seleccionar Habitación -> Confirmar -> Fin
+import 'dart:io';
+
+void main() {
+  print('Ingrese el monto total de inversión:');
+  double? totalDinero = double.parse(stdin.readLineSync()!);
+  double alquiler = 0.23 * totalDinero;
+  double publicidad = 0.07 * totalDinero;
+  double transporte = 0.26 * totalDinero;
+  double servicios = 0.12 * totalDinero;
+  double decoracion = 0.21 * totalDinero;
+  double gastosVarios = 0.11 * totalDinero;
+  print('Gasto en alquiler de espacio: \$${alquiler.toStringAsFixed(2)}');
+  print('Gasto en publicidad: \$${publicidad.toStringAsFixed(2)}');
+  print('Gasto en transporte: \$${transporte.toStringAsFixed(2)}');
+  print('Gasto en servicios feriales: \$${servicios.toStringAsFixed(2)}');
+  print('Gasto en decoración: \$${decoracion.toStringAsFixed(2)}');
+  print('Gasto en gastos varios: \$${gastosVarios.toStringAsFixed(2)}');
+}
             </code></pre>
+            <a href="codigo3.dart" class="download-link" download>Descargar Código</a>
         </div>
 
-        <!-- Agrega más tareas aquí siguiendo el mismo formato -->
-
-        <!-- Botón para regresar al inicio al final de las tareas -->
+        <!-- Botón para regresar al inicio -->
         <a href="index.html" class="back-button">Regresar al Inicio</a>
-        
     </div>
 
-    <!-- JavaScript para animación al cargar las tareas -->
     <script>
         window.addEventListener('load', () => {
             const tasks = document.querySelectorAll('.task');
             tasks.forEach((task, index) => {
                 setTimeout(() => {
                     task.classList.add('animate');
-                }, index * 150); // Agrega un pequeño retraso para cada tarea
+                }, index * 150);
             });
         });
     </script>
