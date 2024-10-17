@@ -23,18 +23,20 @@
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
             border-radius: 20px;
             margin-top: 30px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px; /* Espacio entre columnas */
         }
         .container h1 {
             font-size: 32px;
             color: #333;
             text-align: center;
             margin-bottom: 30px;
+            grid-column: span 2; /* Para centrar el título */
         }
         .task {
             background-color: #fff;
-            width: 100%;
             padding: 20px;
-            margin-bottom: 15px;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
@@ -84,6 +86,7 @@
             transition: background-color 0.3s ease;
             font-size: 18px;
             width: 150px;
+            grid-column: span 2; /* Para centrar el botón */
         }
         .back-button:hover {
             background-color: #45a049;
@@ -110,13 +113,22 @@
         .download-link:hover {
             background-color: #0056b3;
         }
+        .column-title {
+            grid-column: span 2; /* Para centrar los títulos de las columnas */
+            font-size: 26px;
+            margin: 20px 0;
+            text-align: center;
+            color: #333;
+        }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h1>Tareas - Semana 7</h1>
+        <h1>Tareas - Semana 3</h1>
         
+        <div class="column-title">Métodos Simples</div>
+
         <!-- Tarea 1 -->
         <div class="task">
             <div class="task-icon">📋</div>
@@ -210,65 +222,65 @@
             <h2>Proyecto 02: </h2>
             <p>Descripción: Una empresa evalúa a sus empleados bajo dos criterios: puntualidad y rendimiento. En cada caso, el empleado recibe un puntaje que va de 1 a 10, de acuerdo con los siguientes criterios:
                 Puntaje por puntualidad:</p>
-            <pre><code>
-                void main() {
-                    // Entrada: Minutos de tardanza y número de observaciones
-                    int minutosTardanza = 3; // Puedes cambiar este valor para probar
-                    int observaciones = 2; // Puedes cambiar este valor para probar
-                    
-                    // Determinar puntaje por puntualidad
-                    int puntajePuntualidad = 0;
-                    if (minutosTardanza == 0) {
-                      puntajePuntualidad = 10;
-                    } else if (minutosTardanza >= 1 && minutosTardanza <= 2) {
-                      puntajePuntualidad = 8;
-                    } else if (minutosTardanza >= 3 && minutosTardanza <= 5) {
-                      puntajePuntualidad = 6;
-                    } else if (minutosTardanza >= 6 && minutosTardanza <= 9) {
-                      puntajePuntualidad = 4;
-                    } else {
-                      puntajePuntualidad = 0;
-                    }
-                    
-                    // Determinar puntaje por rendimiento
-                    int puntajeRendimiento = 0;
-                    if (observaciones == 0) {
-                      puntajeRendimiento = 10;
-                    } else if (observaciones == 1) {
-                      puntajeRendimiento = 8;
-                    } else if (observaciones == 2) {
-                      puntajeRendimiento = 5;
-                    } else if (observaciones == 3) {
-                      puntajeRendimiento = 1;
-                    } else {
-                      puntajeRendimiento = 0;
-                    }
-                  
-                    // Calcular puntaje total
-                    int puntajeTotal = puntajePuntualidad + puntajeRendimiento;
-                  
-                    // Determinar bonificación
-                    double bonificacion = 0;
-                    if (puntajeTotal < 11) {
-                      bonificacion = 2.5 * puntajeTotal;
-                    } else if (puntajeTotal >= 11 && puntajeTotal <= 13) {
-                      bonificacion = 5.0 * puntajeTotal;
-                    } else if (puntajeTotal >= 14 && puntajeTotal <= 16) {
-                      bonificacion = 7.5 * puntajeTotal;
-                    } else if (puntajeTotal >= 17 && puntajeTotal <= 19) {
-                      bonificacion = 10.0 * puntajeTotal;
-                    } else if (puntajeTotal == 20) {
-                      bonificacion = 12.5 * puntajeTotal;
-                    }
-                  
-                    // Imprimir resultados
-                    print('Puntaje por puntualidad: $puntajePuntualidad');
-                    print('Puntaje por rendimiento: $puntajeRendimiento');
-                    print('Puntaje total: $puntajeTotal');
-                    print('Bonificación: S/. ${bonificacion.toStringAsFixed(2)}');
-                  }
-                  
-            </code></pre>
+                <pre><code>
+                    void main() {
+                        // Entrada: Minutos de tardanza y número de observaciones
+                        int minutosTardanza = 3; // Puedes cambiar este valor para probar
+                        int observaciones = 2; // Puedes cambiar este valor para probar
+                        
+                        // Determinar puntaje por puntualidad
+                        int puntajePuntualidad = 0;
+                        if (minutosTardanza == 0) {
+                          puntajePuntualidad = 10;
+                        } else if (minutosTardanza >= 1 && minutosTardanza <= 2) {
+                          puntajePuntualidad = 8;
+                        } else if (minutosTardanza >= 3 && minutosTardanza <= 5) {
+                          puntajePuntualidad = 6;
+                        } else if (minutosTardanza >= 6 && minutosTardanza <= 9) {
+                          puntajePuntualidad = 4;
+                        } else {
+                          puntajePuntualidad = 0;
+                        }
+                        
+                        // Determinar puntaje por rendimiento
+                        int puntajeRendimiento = 0;
+                        if (observaciones == 0) {
+                          puntajeRendimiento = 10;
+                        } else if (observaciones == 1) {
+                          puntajeRendimiento = 8;
+                        } else if (observaciones == 2) {
+                          puntajeRendimiento = 5;
+                        } else if (observaciones == 3) {
+                          puntajeRendimiento = 1;
+                        } else {
+                          puntajeRendimiento = 0;
+                        }
+                      
+                        // Calcular puntaje total
+                        int puntajeTotal = puntajePuntualidad + puntajeRendimiento;
+                      
+                        // Determinar bonificación
+                        double bonificacion = 0;
+                        if (puntajeTotal < 11) {
+                          bonificacion = 2.5 * puntajeTotal;
+                        } else if (puntajeTotal >= 11 && puntajeTotal <= 13) {
+                          bonificacion = 5.0 * puntajeTotal;
+                        } else if (puntajeTotal >= 14 && puntajeTotal <= 16) {
+                          bonificacion = 7.5 * puntajeTotal;
+                        } else if (puntajeTotal >= 17 && puntajeTotal <= 19) {
+                          bonificacion = 10.0 * puntajeTotal;
+                        } else if (puntajeTotal == 20) {
+                          bonificacion = 12.5 * puntajeTotal;
+                        }
+                      
+                        // Imprimir resultados
+                        print('Puntaje por puntualidad: $puntajePuntualidad');
+                        print('Puntaje por rendimiento: $puntajeRendimiento');
+                        print('Puntaje total: $puntajeTotal');
+                        print('Bonificación: S/. ${bonificacion.toStringAsFixed(2)}');
+                      }
+                      
+                </code></pre>
             <a href="codigo2.dart" class="download-link" download>Descargar Código</a>
         </div>
 
@@ -278,72 +290,72 @@
             <h2>Proyecto 03: </h2>
             <p>Descripción: Adicionalmente, si el importe a pagar es no menor de S/. 250, la tienda obsequia 3 caramelos por cada chocolate; en caso contrario, obsequia 2 caramelos por cada chocolate.
                 Dado el tipo de chocolate y la cantidad de unidades adquiridas, diseñe un programa que determine el importe de la compra, el importe del descuento, el importe a pagar y la cantidad de caramelos de obsequio.</p>
-            <pre><code>
-                void main() {
-                    // Entrada: Tipo de chocolate y cantidad de unidades
-                    String tipoChocolate = 'Primor'; // Puedes cambiar este valor para probar
-                    int cantidad = 12; // Puedes cambiar este valor para probar
-                  
-                    // Determinar el precio unitario según el tipo de chocolate
-                    double precioUnitario = 0;
-                    switch (tipoChocolate) {
-                      case 'Primor':
-                        precioUnitario = 8.5;
-                        break;
-                      case 'Dulzura':
-                        precioUnitario = 10.0;
-                        break;
-                      case 'Tentación':
-                        precioUnitario = 7.0;
-                        break;
-                      case 'Explosión':
-                        precioUnitario = 12.5;
-                        break;
-                      default:
-                        print('Tipo de chocolate no válido.');
-                        return;
-                    }
-                  
-                    // Calcular el importe total de la compra
-                    double importeCompra = cantidad * precioUnitario;
-                  
-                    // Determinar el porcentaje de descuento según la cantidad de chocolates
-                    double porcentajeDescuento = 0;
-                    if (cantidad < 5) {
-                      porcentajeDescuento = 4.0;
-                    } else if (cantidad >= 5 && cantidad < 10) {
-                      porcentajeDescuento = 6.5;
-                    } else if (cantidad >= 10 && cantidad < 15) {
-                      porcentajeDescuento = 9.0;
-                    } else if (cantidad >= 15) {
-                      porcentajeDescuento = 11.5;
-                    }
-                  
-                    // Calcular el importe del descuento
-                    double importeDescuento = (porcentajeDescuento / 100) * importeCompra;
-                  
-                    // Calcular el importe a pagar
-                    double importeAPagar = importeCompra - importeDescuento;
-                  
-                    // Determinar la cantidad de caramelos de obsequio
-                    int caramelos = 0;
-                    if (importeAPagar >= 250) {
-                      caramelos = 3 * cantidad;
-                    } else {
-                      caramelos = 2 * cantidad;
-                    }
-                  
-                    // Imprimir resultados
-                    print('Tipo de chocolate: $tipoChocolate');
-                    print('Cantidad de chocolates: $cantidad');
-                    print('Importe de la compra: S/. ${importeCompra.toStringAsFixed(2)}');
-                    print('Descuento aplicado: ${porcentajeDescuento.toStringAsFixed(1)}%');
-                    print('Importe del descuento: S/. ${importeDescuento.toStringAsFixed(2)}');
-                    print('Importe a pagar: S/. ${importeAPagar.toStringAsFixed(2)}');
-                    print('Cantidad de caramelos de obsequio: $caramelos');
-                  }
-                  
-            </code></pre>
+                <pre><code>
+                    void main() {
+                        // Entrada: Tipo de chocolate y cantidad de unidades
+                        String tipoChocolate = 'Primor'; // Puedes cambiar este valor para probar
+                        int cantidad = 12; // Puedes cambiar este valor para probar
+                      
+                        // Determinar el precio unitario según el tipo de chocolate
+                        double precioUnitario = 0;
+                        switch (tipoChocolate) {
+                          case 'Primor':
+                            precioUnitario = 8.5;
+                            break;
+                          case 'Dulzura':
+                            precioUnitario = 10.0;
+                            break;
+                          case 'Tentación':
+                            precioUnitario = 7.0;
+                            break;
+                          case 'Explosión':
+                            precioUnitario = 12.5;
+                            break;
+                          default:
+                            print('Tipo de chocolate no válido.');
+                            return;
+                        }
+                      
+                        // Calcular el importe total de la compra
+                        double importeCompra = cantidad * precioUnitario;
+                      
+                        // Determinar el porcentaje de descuento según la cantidad de chocolates
+                        double porcentajeDescuento = 0;
+                        if (cantidad < 5) {
+                          porcentajeDescuento = 4.0;
+                        } else if (cantidad >= 5 && cantidad < 10) {
+                          porcentajeDescuento = 6.5;
+                        } else if (cantidad >= 10 && cantidad < 15) {
+                          porcentajeDescuento = 9.0;
+                        } else if (cantidad >= 15) {
+                          porcentajeDescuento = 11.5;
+                        }
+                      
+                        // Calcular el importe del descuento
+                        double importeDescuento = (porcentajeDescuento / 100) * importeCompra;
+                      
+                        // Calcular el importe a pagar
+                        double importeAPagar = importeCompra - importeDescuento;
+                      
+                        // Determinar la cantidad de caramelos de obsequio
+                        int caramelos = 0;
+                        if (importeAPagar >= 250) {
+                          caramelos = 3 * cantidad;
+                        } else {
+                          caramelos = 2 * cantidad;
+                        }
+                      
+                        // Imprimir resultados
+                        print('Tipo de chocolate: $tipoChocolate');
+                        print('Cantidad de chocolates: $cantidad');
+                        print('Importe de la compra: S/. ${importeCompra.toStringAsFixed(2)}');
+                        print('Descuento aplicado: ${porcentajeDescuento.toStringAsFixed(1)}%');
+                        print('Importe del descuento: S/. ${importeDescuento.toStringAsFixed(2)}');
+                        print('Importe a pagar: S/. ${importeAPagar.toStringAsFixed(2)}');
+                        print('Cantidad de caramelos de obsequio: $caramelos');
+                      }
+                      
+                </code></pre>
             <a href="codigo3.dart" class="download-link" download>Descargar Código</a>
         </div>
 
@@ -351,7 +363,7 @@
         <div class="task">
             <div class="task-icon">📊</div>
             <h2>Proyecto 04: </h2>
-            <p>Descripción:Una tienda vende tres tipos de productos. Dado el tipo de producto y la cantidad de unidades adquiridas, diseñe un programa que determine el importe a pagar y el regalo.</p>
+            <p>Descripción: Una tienda vende tres tipos de productos. Dado el tipo de producto y la cantidad de unidades adquiridas, diseñe un programa que determine el importe a pagar y el regalo.</p>
             <pre><code>
                 void main() {
                     // Entrada: Tipo de producto y cantidad de unidades
@@ -396,9 +408,238 @@
                   }
                   
             </code></pre>
-            <a href="codigo3.dart" class="download-link" download>Descargar Código</a>
+            <a href="codigo4.dart" class="download-link" download>Descargar Código</a>
         </div>
-        
+
+        <div class="column-title">Usando Listas</div>
+
+        <!-- Tarea 5 -->
+        <div class="task">
+            <div class="task-icon">📋</div>
+            <h2>Proyecto 01: </h2>
+            <p>Descripción: En una universidad, los alumnos están clasificados en cuatro categorías. Semestralmente, la universidad efectúa rebajas en las pensiones de sus estudiantes a partir del segundo ciclo basándose en el promedio ponderado del ciclo anterior en porcentajes dados.
+                Dado el promedio ponderado y la categoría de un estudiante, diseñe un programa que determine cuánto de rebaja recibirá sobre su pensión actual y a cuánto asciende su nueva pensión.
+            </p>
+            <pre><code>
+                class Empleado {
+                    String nombre;
+                    int minutosTardanza;
+                    int observaciones;
+                  
+                    Empleado(this.nombre, this.minutosTardanza, this.observaciones);
+                  
+                    int puntajePuntualidad() {
+                      if (minutosTardanza == 0) return 10;
+                      if (minutosTardanza <= 2) return 8;
+                      if (minutosTardanza <= 5) return 6;
+                      if (minutosTardanza <= 9) return 4;
+                      return 0;
+                    }
+                  
+                    int puntajeRendimiento() {
+                      if (observaciones == 0) return 10;
+                      if (observaciones == 1) return 8;
+                      if (observaciones == 2) return 5;
+                      if (observaciones == 3) return 1;
+                      return 0;
+                    }
+                  
+                    int puntajeTotal() {
+                      return puntajePuntualidad() + puntajeRendimiento();
+                    }
+                  
+                    double calcularBonificacion() {
+                      int total = puntajeTotal();
+                      if (total < 11) return total * 2.5;
+                      if (total <= 13) return total * 5.0;
+                      if (total <= 16) return total * 7.5;
+                      if (total <= 19) return total * 10.0;
+                      return total * 12.5;
+                    }
+                  
+                    void mostrarInformacion() {
+                      print('Empleado: $nombre');
+                      print('Puntaje por puntualidad: ${puntajePuntualidad()}');
+                      print('Puntaje por rendimiento: ${puntajeRendimiento()}');
+                      print('Puntaje total: ${puntajeTotal()}');
+                      print('Bonificación: S/. ${calcularBonificacion()}');
+                      print('---');
+                    }
+                  }
+                  
+                  void main() {
+                    List<Empleado> listaEmpleados = [
+                      Empleado('Juan', 3, 1),
+                      Empleado('Ana', 0, 0),
+                      Empleado('Luis', 9, 2)
+                    ];
+                  
+                    for (var empleado in listaEmpleados) {
+                      empleado.mostrarInformacion();
+                    }
+                  }
+                  
+            </code></pre>
+            <a href="codigo5.dart" class="download-link" download>Descargar Código</a>
+        </div>
+
+        <!-- Tarea 6 -->
+        <div class="task">
+            <div class="task-icon">📝</div>
+            <h2>Proyecto 02: </h2>
+            <p>Descripción: Una empresa evalúa a sus empleados bajo dos criterios: puntualidad y rendimiento. En cada caso, el empleado recibe un puntaje que va de 1 a 10, de acuerdo con los siguientes criterios:
+                Puntaje por puntualidad:</p>
+            <pre><code>
+                class Chocolate {
+                    String tipo;
+                    double precio;
+                    int cantidad;
+                  
+                    Chocolate(this.tipo, this.precio, this.cantidad);
+                  
+                    double calcularDescuento() {
+                      if (cantidad < 5) return 0.04;
+                      if (cantidad < 10) return 0.065;
+                      if (cantidad < 15) return 0.09;
+                      return 0.115;
+                    }
+                  
+                    double importeCompra() {
+                      return precio * cantidad;
+                    }
+                  
+                    double importeDescuento() {
+                      return importeCompra() * calcularDescuento();
+                    }
+                  
+                    double importeFinal() {
+                      return importeCompra() - importeDescuento();
+                    }
+                  
+                    int obsequioCaramelos() {
+                      return importeFinal() >= 250 ? cantidad * 3 : cantidad * 2;
+                    }
+                  
+                    void mostrarInformacion() {
+                      print('Tipo de chocolate: $tipo');
+                      print('Cantidad: $cantidad');
+                      print('Importe de la compra: S/. ${importeCompra().toStringAsFixed(2)}');
+                      print('Descuento aplicado: S/. ${importeDescuento().toStringAsFixed(2)}');
+                      print('Importe final: S/. ${importeFinal().toStringAsFixed(2)}');
+                      print('Caramelos de obsequio: ${obsequioCaramelos()}');
+                      print('---');
+                    }
+                  }
+                  
+                  void main() {
+                    List<Chocolate> listaChocolates = [
+                      Chocolate('Primor', 8.5, 6),
+                      Chocolate('Dulzura', 10.0, 12),
+                      Chocolate('Tentación', 7.0, 4)
+                    ];
+                  
+                    for (var chocolate in listaChocolates) {
+                      chocolate.mostrarInformacion();
+                    }
+                  }
+                  
+                  
+            </code></pre>
+            <a href="codigo6.dart" class="download-link" download>Descargar Código</a>
+        </div>
+
+        <!-- Tarea 7 -->
+        <div class="task">
+            <div class="task-icon">📊</div>
+            <h2>Proyecto 03: </h2>
+            <p>Descripción: Adicionalmente, si el importe a pagar es no menor de S/. 250, la tienda obsequia 3 caramelos por cada chocolate; en caso contrario, obsequia 2 caramelos por cada chocolate.
+                Dado el tipo de chocolate y la cantidad de unidades adquiridas, diseñe un programa que determine el importe de la compra, el importe del descuento, el importe a pagar y la cantidad de caramelos de obsequio.</p>
+            <pre><code>
+                class RubroInversion {
+                    String rubro;
+                    double porcentaje;
+                  
+                    RubroInversion(this.rubro, this.porcentaje);
+                  
+                    double calcularInversion(double total) {
+                      return total * porcentaje;
+                    }
+                  
+                    void mostrarInversion(double total) {
+                      print('Rubro: $rubro');
+                      print('Inversión: S/. ${calcularInversion(total).toStringAsFixed(2)}');
+                      print('---');
+                    }
+                  }
+                  
+                  void main() {
+                    double totalDinero = 5000.0;
+                    List<RubroInversion> listaRubros = [
+                      RubroInversion('Alquiler', 0.23),
+                      RubroInversion('Publicidad', 0.07),
+                      RubroInversion('Transporte', 0.26),
+                      RubroInversion('Servicios', 0.12),
+                      RubroInversion('Decoración', 0.21),
+                      RubroInversion('Gastos varios', 0.11)
+                    ];
+                  
+                    for (var rubro in listaRubros) {
+                      rubro.mostrarInversion(totalDinero);
+                    }
+                  }
+                  
+            </code></pre>
+            <a href="codigo7.dart" class="download-link" download>Descargar Código</a>
+        </div>
+
+        <!-- Tarea 8 -->
+        <div class="task">
+            <div class="task-icon">📊</div>
+            <h2>Proyecto 04: </h2>
+            <p>Descripción: Una tienda vende tres tipos de productos. Dado el tipo de producto y la cantidad de unidades adquiridas, diseñe un programa que determine el importe a pagar y el regalo.</p>
+            <pre><code>
+                class Producto {
+                    String nombre;
+                    double precio;
+                    int cantidad;
+                  
+                    Producto(this.nombre, this.precio, this.cantidad);
+                  
+                    double importeCompra() {
+                      return precio * cantidad;
+                    }
+                  
+                    String determinarRegalo() {
+                      if (cantidad < 26) return 'Lapicero';
+                      if (cantidad <= 50) return 'Cuaderno';
+                      return 'Agenda';
+                    }
+                  
+                    void mostrarInformacion() {
+                      print('Producto: $nombre');
+                      print('Cantidad: $cantidad');
+                      print('Importe total: S/. ${importeCompra().toStringAsFixed(2)}');
+                      print('Regalo: ${determinarRegalo()}');
+                      print('---');
+                    }
+                  }
+                  
+                  void main() {
+                    List<Producto> listaProductos = [
+                      Producto('P1', 15.0, 25),
+                      Producto('P2', 17.5, 30),
+                      Producto('P3', 20.0, 55)
+                    ];
+                  
+                    for (var producto in listaProductos) {
+                      producto.mostrarInformacion();
+                    }
+                  }
+                  
+            </code></pre>
+            <a href="codigo8.dart" class="download-link" download>Descargar Código</a>
+        </div>
+
         <!-- Botón para regresar al inicio -->
         <a href="index.html" class="back-button">Regresar al Inicio</a>
     </div>
