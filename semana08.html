@@ -222,65 +222,309 @@
         <div class="task">
             <div class="task-icon">📝</div>
             <h2>Proyecto 02: </h2>
-            <p>Descripción: Una empresa evalúa a sus empleados bajo dos criterios: puntualidad y rendimiento. En cada caso, el empleado recibe un puntaje que va de 1 a 10, de acuerdo con los siguientes criterios:
-                Puntaje por puntualidad:</p>
+            <p> Una ventana login (validar el ingreso de datos con su correo electrónico) 
+Una ventana de menú de opciones (incluir un menú lateral) para hallar el área de las 04 figuras geométricas. 
+Realizar cuatro. métodos que calculen área de figuras geométricas (círculo, cuadrado, rectángulo y triángulo)  </p>
                 <pre><code>
+                import 'package:flutter/material.dart';
+                    
                     void main() {
-                        // Entrada: Minutos de tardanza y número de observaciones
-                        int minutosTardanza = 3; // Puedes cambiar este valor para probar
-                        int observaciones = 2; // Puedes cambiar este valor para probar
-                        
-                        // Determinar puntaje por puntualidad
-                        int puntajePuntualidad = 0;
-                        if (minutosTardanza == 0) {
-                          puntajePuntualidad = 10;
-                        } else if (minutosTardanza >= 1 && minutosTardanza <= 2) {
-                          puntajePuntualidad = 8;
-                        } else if (minutosTardanza >= 3 && minutosTardanza <= 5) {
-                          puntajePuntualidad = 6;
-                        } else if (minutosTardanza >= 6 && minutosTardanza <= 9) {
-                          puntajePuntualidad = 4;
-                        } else {
-                          puntajePuntualidad = 0;
-                        }
-                        
-                        // Determinar puntaje por rendimiento
-                        int puntajeRendimiento = 0;
-                        if (observaciones == 0) {
-                          puntajeRendimiento = 10;
-                        } else if (observaciones == 1) {
-                          puntajeRendimiento = 8;
-                        } else if (observaciones == 2) {
-                          puntajeRendimiento = 5;
-                        } else if (observaciones == 3) {
-                          puntajeRendimiento = 1;
-                        } else {
-                          puntajeRendimiento = 0;
-                        }
-                      
-                        // Calcular puntaje total
-                        int puntajeTotal = puntajePuntualidad + puntajeRendimiento;
-                      
-                        // Determinar bonificación
-                        double bonificacion = 0;
-                        if (puntajeTotal < 11) {
-                          bonificacion = 2.5 * puntajeTotal;
-                        } else if (puntajeTotal >= 11 && puntajeTotal <= 13) {
-                          bonificacion = 5.0 * puntajeTotal;
-                        } else if (puntajeTotal >= 14 && puntajeTotal <= 16) {
-                          bonificacion = 7.5 * puntajeTotal;
-                        } else if (puntajeTotal >= 17 && puntajeTotal <= 19) {
-                          bonificacion = 10.0 * puntajeTotal;
-                        } else if (puntajeTotal == 20) {
-                          bonificacion = 12.5 * puntajeTotal;
-                        }
-                      
-                        // Imprimir resultados
-                        print('Puntaje por puntualidad: $puntajePuntualidad');
-                        print('Puntaje por rendimiento: $puntajeRendimiento');
-                        print('Puntaje total: $puntajeTotal');
-                        print('Bonificación: S/. ${bonificacion.toStringAsFixed(2)}');
+                      runApp(const MyApp());
+                    }
+                    
+                    class MyApp extends StatelessWidget {
+                      const MyApp({super.key});
+                    
+                      @override
+                      Widget build(BuildContext context) {
+                        return MaterialApp(
+                          title: 'Calculadora de Áreas',
+                          theme: ThemeData(
+                            primarySwatch: Colors.blue,
+                          ),
+                          home: LoginPage(),
+                        );
                       }
+                    }
+                    
+                    class LoginPage extends StatelessWidget {
+                      final TextEditingController emailController = TextEditingController();
+                    
+                      LoginPage({super.key});
+                    
+                      @override
+                      Widget build(BuildContext context) {
+                        return Scaffold(
+                          appBar: AppBar(title: const Text('Login')),
+                          body: Padding(
+                            padding: const EdgeInsets.all(16.0),
+                            child: Column(
+                              children: [
+                                TextField(
+                                  controller: emailController,
+                                  decoration: const InputDecoration(labelText: 'Correo electrónico'),
+                                  keyboardType: TextInputType.emailAddress,
+                                ),
+                                const SizedBox(height: 20),
+                                ElevatedButton(
+                                  onPressed: () {
+                                    String email = emailController.text;
+                                    if (RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(email)) {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(builder: (context) => const MenuPage()),
+                                      );
+                                    } else {
+                                      ScaffoldMessenger.of(context).showSnackBar(
+                                        const SnackBar(content: Text('Correo electrónico inválido')),
+                                      );
+                                    }
+                                  },
+                                  child: const Text('Iniciar sesión'),
+                                ),
+                              ],
+                            ),
+                          ),
+                        );
+                      }
+                    }
+                    
+                    class MenuPage extends StatelessWidget {
+                      const MenuPage({super.key});
+                    
+                      @override
+                      Widget build(BuildContext context) {
+                        return Scaffold(
+                          appBar: AppBar(title: const Text('Menú')),
+                          drawer: Drawer(
+                            child: ListView(
+                              padding: EdgeInsets.zero,
+                              children: <Widget>[
+                                const DrawerHeader(
+                                  decoration: BoxDecoration(color: Colors.blue),
+                                  child: Text('Opciones'),
+                                ),
+                                ListTile(
+                                  title: const Text('Área del Círculo'),
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(builder: (context) => CircleAreaPage()),
+                                    );
+                                  },
+                                ),
+                                ListTile(
+                                  title: const Text('Área del Cuadrado'),
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(builder: (context) => SquareAreaPage()),
+                                    );
+                                  },
+                                ),
+                                ListTile(
+                                  title: const Text('Área del Rectángulo'),
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(builder: (context) => RectangleAreaPage()),
+                                    );
+                                  },
+                                ),
+                                ListTile(
+                                  title: const Text('Área del Triángulo'),
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(builder: (context) => TriangleAreaPage()),
+                                    );
+                                  },
+                                ),
+                              ],
+                            ),
+                          ),
+                          body: const Center(child: Text('Selecciona una figura')),
+                        );
+                      }
+                    }
+                    
+                    // Métodos para calcular áreas
+                    double calculateCircleArea(double radius) {
+                      return 3.14 * radius * radius;
+                    }
+                    
+                    double calculateSquareArea(double side) {
+                      return side * side;
+                    }
+                    
+                    double calculateRectangleArea(double length, double width) {
+                      return length * width;
+                    }
+                    
+                    double calculateTriangleArea(double base, double height) {
+                      return 0.5 * base * height;
+                    }
+                    
+                    // Página para el área del círculo
+                    class CircleAreaPage extends StatelessWidget {
+                      final TextEditingController radiusController = TextEditingController();
+                    
+                      CircleAreaPage({super.key});
+                    
+                      @override
+                      Widget build(BuildContext context) {
+                        return Scaffold(
+                          appBar: AppBar(title: const Text('Área del Círculo')),
+                          body: Padding(
+                            padding: const EdgeInsets.all(16.0),
+                            child: Column(
+                              children: [
+                                TextField(
+                                  controller: radiusController,
+                                  decoration: const InputDecoration(labelText: 'Radio'),
+                                  keyboardType: TextInputType.number,
+                                ),
+                                const SizedBox(height: 20),
+                                ElevatedButton(
+                                  onPressed: () {
+                                    double radius = double.parse(radiusController.text);
+                                    double area = calculateCircleArea(radius);
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(content: Text('Área: $area')),
+                                    );
+                                  },
+                                  child: const Text('Calcular Área'),
+                                ),
+                              ],
+                            ),
+                          ),
+                        );
+                      }
+                    }
+                    
+                    // Puedes crear páginas similares para el cuadrado, rectángulo y triángulo
+                    class SquareAreaPage extends StatelessWidget {
+                      final TextEditingController sideController = TextEditingController();
+                    
+                      SquareAreaPage({super.key});
+                    
+                      @override
+                      Widget build(BuildContext context) {
+                        return Scaffold(
+                          appBar: AppBar(title: const Text('Área del Cuadrado')),
+                          body: Padding(
+                            padding: const EdgeInsets.all(16.0),
+                            child: Column(
+                              children: [
+                                TextField(
+                                  controller: sideController,
+                                  decoration: const InputDecoration(labelText: 'Lado'),
+                                  keyboardType: TextInputType.number,
+                                ),
+                                const SizedBox(height: 20),
+                                ElevatedButton(
+                                  onPressed: () {
+                                    double side = double.parse(sideController.text);
+                                    double area = calculateSquareArea(side);
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(content: Text('Área: $area')),
+                                    );
+                                  },
+                                  child: const Text('Calcular Área'),
+                                ),
+                              ],
+                            ),
+                          ),
+                        );
+                      }
+                    }
+                    
+                    class RectangleAreaPage extends StatelessWidget {
+                      final TextEditingController lengthController = TextEditingController();
+                      final TextEditingController widthController = TextEditingController();
+                    
+                      RectangleAreaPage({super.key});
+                    
+                      @override
+                      Widget build(BuildContext context) {
+                        return Scaffold(
+                          appBar: AppBar(title: const Text('Área del Rectángulo')),
+                          body: Padding(
+                            padding: const EdgeInsets.all(16.0),
+                            child: Column(
+                              children: [
+                                TextField(
+                                  controller: lengthController,
+                                  decoration: const InputDecoration(labelText: 'Largo'),
+                                  keyboardType: TextInputType.number,
+                                ),
+                                TextField(
+                                  controller: widthController,
+                                  decoration: const InputDecoration(labelText: 'Ancho'),
+                                  keyboardType: TextInputType.number,
+                                ),
+                                const SizedBox(height: 20),
+                                ElevatedButton(
+                                  onPressed: () {
+                                    double length = double.parse(lengthController.text);
+                                    double width = double.parse(widthController.text);
+                                    double area = calculateRectangleArea(length, width);
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(content: Text('Área: $area')),
+                                    );
+                                  },
+                                  child: const Text('Calcular Área'),
+                                ),
+                              ],
+                            ),
+                          ),
+                        );
+                      }
+                    }
+                    
+                    class TriangleAreaPage extends StatelessWidget {
+                      final TextEditingController baseController = TextEditingController();
+                      final TextEditingController heightController = TextEditingController();
+                    
+                      TriangleAreaPage({super.key});
+                    
+                      @override
+                      Widget build(BuildContext context) {
+                        return Scaffold(
+                          appBar: AppBar(title: const Text('Área del Triángulo')),
+                          body: Padding(
+                            padding: const EdgeInsets.all(16.0),
+                            child: Column(
+                              children: [
+                                TextField(
+                                  controller: baseController,
+                                  decoration: const InputDecoration(labelText: 'Base'),
+                                  keyboardType: TextInputType.number,
+                                ),
+                                TextField(
+                                  controller: heightController,
+                                  decoration: const InputDecoration(labelText: 'Altura'),
+                                  keyboardType: TextInputType.number,
+                                ),
+                                const SizedBox(height: 20),
+                                ElevatedButton(
+                                  onPressed: () {
+                                    double base = double.parse(baseController.text);
+                                    double height = double.parse(heightController.text);
+                                    double area = calculateTriangleArea(base, height);
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(content: Text('Área: $area')),
+                                    );
+                                  },
+                                  child: const Text('Calcular Área'),
+                                ),
+                              ],
+                            ),
+                          ),
+                        );
+                      }
+                    }
+
                       
                 </code></pre>
             <a href="codigo2.dart" class="download-link" download>Descargar Código</a>
