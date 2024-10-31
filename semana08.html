@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tareas - Semana 7</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #81c3f3 0%, #3a8ef3 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+        .container {
+            width: 90%;
+            max-width: 1500px;
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            margin-top: 30px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px; /* Espacio entre columnas */
+        }
+        .container h1 {
+            font-size: 32px;
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+            grid-column: span 2; /* Para centrar el título */
+        }
+        .task {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        .task:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            background-color: #fdfdfd;
+        }
+        .task h2 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .task p {
+            font-size: 16px;
+            color: #666;
+        }
+        .task pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+        .task-icon {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-size: 50px;
+            color: rgba(255, 183, 77, 0.2);
+        }
+        .back-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px auto;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            font-size: 18px;
+            width: 150px;
+            grid-column: span 2; /* Para centrar el botón */
+        }
+        .back-button:hover {
+            background-color: #45a049;
+        }
+        .task {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        .task.animate {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.6s ease;
+        }
+        .download-link {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .download-link:hover {
+            background-color: #0056b3;
+        }
+        .column-title {
+            grid-column: span 2; /* Para centrar los títulos de las columnas */
+            font-size: 26px;
+            margin: 20px 0;
+            text-align: center;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Tareas - Semana 7</h1>
+        
+        <div class="column-title">Métodos Simples</div>
+
+        <!-- Tarea 1 -->
+        <div class="task">
+            <div class="task-icon">📋</div>
+            <h2>Proyecto 01: </h2>
+            <p> Realizar un splash screen que al finalizar muestre tu nombre
+            </p>
+            <pre><code>
+                import 'package:flutter/material.dart';
+
+                void main() {
+                  runApp(const MyApp());
+                }
+                
+                class MyApp extends StatelessWidget {
+                  const MyApp({super.key});
+                
+                  @override
+                  Widget build(BuildContext context) {
+                    return MaterialApp(
+                      title: 'Splash Screen Example',
+                      theme: ThemeData(
+                        primarySwatch: Colors.blue,
+                      ),
+                      home: const SplashScreen(),
+                    );
+                  }
+                }
+                
+                class SplashScreen extends StatefulWidget {
+                  const SplashScreen({super.key});
+                
+                  @override
+                  // ignore: library_private_types_in_public_api
+                  _SplashScreenState createState() => _SplashScreenState();
+                }
+                
+                class _SplashScreenState extends State<SplashScreen> {
+                  @override
+                  void initState() {
+                    super.initState();
+                    // Retarda la navegación por 3 segundos
+                    Future.delayed(const Duration(seconds: 3), () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (context) => HomeScreen()),
+                      );
+                    });
+                  }
+                
+                  @override
+                  Widget build(BuildContext context) {
+                    return const Scaffold(
+                      backgroundColor: Colors.blue, // Puedes cambiar el color de fondo
+                      body: Center(
+                        child: Text(
+                          'Bienvenido',
+                          style: TextStyle(
+                            fontSize: 30,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    );
+                  }
+                }
+                
+                class HomeScreen extends StatelessWidget {
+                  const HomeScreen({super.key});
+                
+                  @override
+                  Widget build(BuildContext context) {
+                    return const Scaffold(
+                      body: Center(
+                        child: Text(
+                          'Jamyl Luis', // Cambia a tu nombre
+                          style: TextStyle(
+                            fontSize: 40,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    );
+                  }
+                }
+                
+                                
+            </code></pre>
+            <a href="codigo1.dart" class="download-link" download>Descargar Código</a>
+        </div>
+
+        <!-- Tarea 2 -->
+        <div class="task">
+            <div class="task-icon">📝</div>
+            <h2>Proyecto 02: </h2>
+            <p>Descripción: Una empresa evalúa a sus empleados bajo dos criterios: puntualidad y rendimiento. En cada caso, el empleado recibe un puntaje que va de 1 a 10, de acuerdo con los siguientes criterios:
+                Puntaje por puntualidad:</p>
+                <pre><code>
+                    void main() {
+                        // Entrada: Minutos de tardanza y número de observaciones
+                        int minutosTardanza = 3; // Puedes cambiar este valor para probar
+                        int observaciones = 2; // Puedes cambiar este valor para probar
+                        
+                        // Determinar puntaje por puntualidad
+                        int puntajePuntualidad = 0;
+                        if (minutosTardanza == 0) {
+                          puntajePuntualidad = 10;
+                        } else if (minutosTardanza >= 1 && minutosTardanza <= 2) {
+                          puntajePuntualidad = 8;
+                        } else if (minutosTardanza >= 3 && minutosTardanza <= 5) {
+                          puntajePuntualidad = 6;
+                        } else if (minutosTardanza >= 6 && minutosTardanza <= 9) {
+                          puntajePuntualidad = 4;
+                        } else {
+                          puntajePuntualidad = 0;
+                        }
+                        
+                        // Determinar puntaje por rendimiento
+                        int puntajeRendimiento = 0;
+                        if (observaciones == 0) {
+                          puntajeRendimiento = 10;
+                        } else if (observaciones == 1) {
+                          puntajeRendimiento = 8;
+                        } else if (observaciones == 2) {
+                          puntajeRendimiento = 5;
+                        } else if (observaciones == 3) {
+                          puntajeRendimiento = 1;
+                        } else {
+                          puntajeRendimiento = 0;
+                        }
+                      
+                        // Calcular puntaje total
+                        int puntajeTotal = puntajePuntualidad + puntajeRendimiento;
+                      
+                        // Determinar bonificación
+                        double bonificacion = 0;
+                        if (puntajeTotal < 11) {
+                          bonificacion = 2.5 * puntajeTotal;
+                        } else if (puntajeTotal >= 11 && puntajeTotal <= 13) {
+                          bonificacion = 5.0 * puntajeTotal;
+                        } else if (puntajeTotal >= 14 && puntajeTotal <= 16) {
+                          bonificacion = 7.5 * puntajeTotal;
+                        } else if (puntajeTotal >= 17 && puntajeTotal <= 19) {
+                          bonificacion = 10.0 * puntajeTotal;
+                        } else if (puntajeTotal == 20) {
+                          bonificacion = 12.5 * puntajeTotal;
+                        }
+                      
+                        // Imprimir resultados
+                        print('Puntaje por puntualidad: $puntajePuntualidad');
+                        print('Puntaje por rendimiento: $puntajeRendimiento');
+                        print('Puntaje total: $puntajeTotal');
+                        print('Bonificación: S/. ${bonificacion.toStringAsFixed(2)}');
+                      }
+                      
+                </code></pre>
+            <a href="codigo2.dart" class="download-link" download>Descargar Código</a>
+        </div>
+
+       
+        <!-- Botón para regresar al inicio -->
+        <a href="index.html" class="back-button">Regresar al Inicio</a>
+    </div>
+
+    <script>
+        window.addEventListener('load', () => {
+            const tasks = document.querySelectorAll('.task');
+            tasks.forEach((task, index) => {
+                setTimeout(() => {
+                    task.classList.add('animate');
+                }, index * 150);
+            });
+        });
+    </script>
+
+</body>
+</html>
